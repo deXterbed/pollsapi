@@ -1,11 +1,12 @@
 from django.urls import path
+from .apiviews import PollList, PollDetail
 
 from . import views
 
 app_name = 'polls'
 urlpatterns = [
     # ex: /polls/
-    path('', views.list, name='index'),
+    path('', PollList.as_view(), name='index'),
     # ex: /polls/5/
-    path('<int:pk>/', views.detail, name='detail'),
+    path('<int:pk>/', PollDetail.as_view(), name='detail'),
 ]
